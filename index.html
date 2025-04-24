@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Pacheco - Dev Portfolio RPG</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loading-text">Carregando portfólio RPG<span class="cursor"></span></div>
+        <div class="loading-bar-container">
+            <div id="loading-bar"></div>
+        </div>
+        <div id="loading-percent">0%</div>
+    </div>
+    
+    <div class="matrix-background" id="matrix"></div>
+    
+    <div id="custom-cursor"></div>
+    
+    <div class="game-container">
+        <div class="sidebar">
+            <div class="profile-pic">
+                <img src="img/foto.png" alt="Foto de perfil">
+            </div>
+            <div class="profile-name">LSLP DEV</div>
+            <div class="profile-title">Front-end Dev</div>
+            <div class="divider"></div>
+            
+            <button class="nav-button" onclick="showSection('home')">Home</button>
+            <button class="nav-button" onclick="showSection('profile')">Meu Perfil</button>
+            <button class="nav-button" onclick="showSection('skills')">Skills</button>
+            <button class="nav-button" onclick="showSection('projects')">Projetos</button>
+            <button class="nav-button" onclick="showSection('experience')">Experiência</button>
+            <button class="nav-button" onclick="showSection('education')">Educação</button>
+            <button class="nav-button" onclick="showSection('contact')">Contato</button>
+            
+            <div class="navigation-hint">
+                Pressione <span class="key">W</span> e <span class="key">S</span> no teclado para navegar!
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <h1>Lucas Sperandio Lobo Pacheco <span class="cursor"></span></h1>
+                <h2>Level 21 Developer</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-label">Saúde</div>
+                <div class="stat-bar health-bar">
+                    <div class="stat-fill"></div>
+                </div>
+                
+                <div class="stat-label">Code exp.</div>
+                <div class="stat-bar mp-bar">
+                    <div class="stat-fill"></div>
+                </div>
+                
+                <div class="stat-label">Horas de Sono</div>
+                <div class="stat-bar energy-bar">
+                    <div class="stat-fill"></div>
+                </div>
+            </div>
+            
+            <div class="section skills-section">
+                <div class="section-title">Skills Principais</div>
+                <div class="skills-grid">
+                    <div class="skill-icon">HTML</div>
+                    <div class="skill-icon">CSS</div>
+                    <div class="skill-icon">JS</div>
+                    <div class="skill-icon">TS</div>
+                    <div class="skill-icon">React</div>
+                    <div class="skill-icon">Vue</div>
+                    <div class="skill-icon">Next</div>
+                    <div class="skill-icon">UI</div>
+                    <div class="skill-icon">Redux</div>
+                    <div class="skill-icon">Node</div>
+                    <div class="skill-icon">Sass</div>
+                    <div class="skill-icon">+10</div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="bio">
+                Olá, eu sou o Lucas S. L. Pacheco, um developer apaixonado por criar experiências digitais únicas e envolventes. Estou sempre em busca de novos desafios, aprendizados e power-ups de conhecimento.
+                <br><br>
+                Neste mundo mágico da programação, cada linha de código é uma conquista, e cada projeto é uma nova missão completada com orgulho.
+            </div>
+            
+            <div class="attributes">
+                <div class="attribute">
+                    <div class="attribute-icon">💼</div>
+                    <div>Front-end Freelancer Dev (Web/Mobile)</div>
+                </div>
+                <div class="attribute">
+                    <div class="attribute-icon">🎓</div>
+                    <div>Cursando Análise e Desenvolvimento de Sistemas</div>
+                </div>
+                <div class="attribute">
+                    <div class="attribute-icon">🌐</div>
+                    <div>Inglês Intermediário</div>
+                </div>
+                <div class="attribute">
+                    <div class="attribute-icon">📚</div>
+                    <div>Atualmente explorando Python e aplicações em IA</div>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <div>Curtiu esse portfólio?</div>
+                <div style="font-style: italic; margin: 10px 0; color: var(--frame-color);">
+                    🗡️ "Você viu o que eu posso fazer."
+                </div>
+                <div>
+                    Entre em contato e agende uma quest comigo!
+                    <br>Ou leve meu pergaminho de habilidades (vulgo CV)
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="action-button">
+                        <span>📨</span> Enviar msg
+                    </button>
+                    <button class="action-button">
+                        <span>📜</span> Baixar CV
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="profile-section" class="content-section active">
+        <div class="section-header">
+            <h2 class="section-title">Meu Perfil <span class="cursor"></span></h2>
+            <div class="section-subtitle">Estatísticas de Personagem</div>
+        </div>
+        
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="img/foto.png" alt="Foto de perfil">
+                    <div class="level-badge">Lv. 21</div>
+                </div>
+                <div class="profile-info">
+                    <h3>Lucas Sperandio L. Pacheco</h3>
+                    <div class="character-class">Front-end Developer</div>
+                    <div class="character-motto">"Transformando problemas em código elegante"</div>
+                </div>
+            </div>
+            
+            <div class="character-stats">
+                <div class="stat-row">
+                    <div class="stat-label">Força</div>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar-fill" style="width: 50%"></div>
+                        <div class="stat-value">50/100</div>
+                    </div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-label">Inteligência</div>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar-fill" style="width: 80%"></div>
+                        <div class="stat-value">80/100</div>
+                    </div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-label">Criatividade</div>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar-fill" style="width: 90%"></div>
+                        <div class="stat-value">90/100</div>
+                    </div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-label">Resolução Bugs</div>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar-fill" style="width: 80%"></div>
+                        <div class="stat-value">80/100</div>
+                    </div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-label">Interface UX</div>
+                    <div class="stat-bar-container">
+                        <div class="stat-bar-fill" style="width: 88%"></div>
+                        <div class="stat-value">88/100</div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="character-details">
+                <div class="detail-section">
+                    <h4 class="detail-title">História</h4>
+                    <p class="detail-content">
+                        Originário do pequeno reino da programação localizado em Curitiba PR, Lucas começou sua jornada como um simples curioso na grande magia da programação. Ao longo dos anos, foi ganhando experiência em diversas batalhas contra bugs e desafios de código, conquistando assim poderosas habilidades em HTML, CSS e outras artes arcanas do front-end.
+                    </p>
+                    <p class="detail-content">
+                        Hoje, como um desenvolvedor front-end de nível 21, aplica seus conhecimentos na construção de interfaces elegantes e responsivas, sempre em busca de novas técnicas e magias para melhorar seu arsenal de habilidades.
+                    </p>
+                </div>
+                
+                <div class="detail-section">
+                    <h4 class="detail-title">Equipamentos</h4>
+                    <ul class="equipment-list">
+                        <li class="equipment-item">
+                            <span class="equipment-icon">💻</span>
+                            <span class="equipment-name">Desktop Arcano</span>
+                            <span class="equipment-bonus">+15 Velocidade de Desenvolvimento</span>
+                        </li>
+                        <li class="equipment-item">
+                            <span class="equipment-icon">☕</span>
+                            <span class="equipment-name">Caneca de Café Encantada</span>
+                            <span class="equipment-bonus">+10 Foco, -5 Sono</span>
+                        </li>
+                        <li class="equipment-item">
+                            <span class="equipment-icon">🎧</span>
+                            <span class="equipment-name">Headphones Mitológicos</span>
+                            <span class="equipment-bonus">+20 Concentração, Imunidade a Distrações</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="skills-section" class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Skills <span class="cursor"></span></h2>
+            <div class="section-subtitle">Habilidades e Competências</div>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-item">
+                <div class="skill-icon">💻</div>
+                <div class="skill-name">HTML</div>
+                <div class="skill-level">
+                    <div class="skill-bar" style="width: 95%;"></div>
+                    <div class="skill-value">95%</div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">🎨</div>
+                <div class="skill-name">CSS</div>
+                <div class="skill-level">
+                    <div class="skill-bar" style="width: 90%;"></div>
+                    <div class="skill-value">90%</div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">⚙️</div>
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-level">
+                    <div class="skill-bar" style="width: 85%;"></div>
+                    <div class="skill-value">85%</div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">🔧</div>
+                <div class="skill-name">React</div>
+                <div class="skill-level">
+                    <div class="skill-bar" style="width: 80%;"></div>
+                    <div class="skill-value">80%</div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">📦</div>
+                <div class="skill-name">Node.js</div>
+                <div class="skill-level">
+                    <div class="skill-bar" style="width: 75%;"></div>
+                    <div class="skill-value">75%</div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">📱</div>
+                <div class="skill-name">UI/UX Design</div>
+                <div class="skill-level">
+                    <div class="skill-bar" style="width: 70%;"></div>
+                    <div class="skill-value">70%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="projects-section" class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Projetos <span class="cursor"></span></h2>
+            <div class="section-subtitle">Meus Trabalhos Recentes</div>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">🌐</div>
+                <div class="project-info">
+                    <div class="project-title">Portfolio Interativo</div>
+                    <div class="project-desc">Portfolio pessoal com design interativo e animações.</div>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Demo</a>
+                        <a href="#" class="project-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">📊</div>
+                <div class="project-info">
+                    <div class="project-title">Dashboard de Análise</div>
+                    <div class="project-desc">Painel de controle com gráficos dinâmicos e integração de APIs.</div>
+                    <div class="project-tags">
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Chart.js</span>
+                        <span class="project-tag">Node.js</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Demo</a>
+                        <a href="#" class="project-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">📂</div>
+                <div class="project-info">
+                    <div class="project-title">Automação de Orçamento</div>
+                    <div class="project-desc">
+                        Sistema automatizado para geração de orçamentos utilizando Python, Pandas e ExcelWriter. 
+                        Permite manipulação de dados e exportação eficiente para planilhas.
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Pandas</span>
+                        <span class="project-tag">ExcelWriter</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Demo</a>
+                        <a href="#" class="project-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="experience-section" class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Experiência <span class="cursor"></span></h2>
+            <div class="section-subtitle">Minhas Aventuras Profissionais</div>
+        </div>
+
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="experience-date">2023 - Presente</div>
+                <div class="experience-details">
+                    <h3 class="experience-title">Desenvolvedor Front-end Freelancer</h3>
+                    <p class="experience-desc">
+                        Trabalhando em projetos diversos, criando interfaces responsivas e otimizadas para web e mobile. Experiência com React, Vue.js e integração de APIs.
+                    </p>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-date">2024 - Presente</div>
+                <div class="experience-details">
+                    <h3 class="experience-title">DEV Full Stack Irmãos Passaúra</h3>
+                    <p class="experience-desc">
+                        Meu atual trabalho como desenvolvedor full stack, onde estou desenvolvendo projetos desafiadores. Estou aprendendo muito sobre desenvolvimento back-end e integração de sistemas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-date">2019 - 2021</div>
+                <div class="experience-details">
+                    <h3 class="experience-title">Suporte Técnico em TI</h3>
+                    <p class="experience-desc">
+                        Resolvia problemas técnicos e oferecia suporte para usuários finais. Essa experiência me ajudou a desenvolver habilidades de resolução de problemas e comunicação.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="education-section" class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Educação <span class="cursor"></span></h2>
+            <div class="section-subtitle">Minha Jornada Acadêmica</div>
+        </div>
+
+        <div class="education-timeline">
+            <div class="education-item">
+                <div class="education-date">2023 - 2026</div>
+                <div class="education-details">
+                    <h3 class="education-title">Bacharelado em Analise e Desenvolvimento de Sistemas</h3>
+                    <p class="education-desc">Uniopet</p>
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-date">2021 - 2022</div>
+                <div class="education-details">
+                    <h3 class="education-title">Curso Técnico em Desenvolvimento de Sistemas</h3>
+                    <p class="education-desc">SENAI</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact-section" class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">Contato <span class="cursor"></span></h2>
+            <div class="section-subtitle">Entre em Contato Comigo</div>
+        </div>
+
+        <div class="contact-form">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" name="name" placeholder="Seu Nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Seu E-mail" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" placeholder="Sua Mensagem" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Enviar</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="js/scripts.js"></script>
+</body>
+</html>
