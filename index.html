@@ -85,6 +85,7 @@
                     <div class="skill-icon">Redux</div>
                     <div class="skill-icon">Node</div>
                     <div class="skill-icon">Sass</div>
+                    <div class="skill-icon">Django</div>
                     <div class="skill-icon">+10</div>
                 </div>
             </div>
@@ -127,10 +128,10 @@
                 </div>
                 
                 <div class="action-buttons">
-                    <button class="action-button">
+                    <button class="action-button" onclick="showSection('contact'); document.getElementById('contact-section').scrollIntoView({ behavior: 'smooth' });">
                         <span>📨</span> Enviar msg
                     </button>
-                    <button class="action-button">
+                    <button class="action-button" onclick="window.open('https://seulinkdocv.com/cv.pdf', '_blank')">
                         <span>📜</span> Baixar CV
                     </button>
                 </div>
@@ -285,6 +286,14 @@
                     <div class="skill-value">70%</div>
                 </div>
             </div>
+            <div class="skill-item">
+                <div class="skill-icon">🌱</div>
+                <div class="skill-name">Django</div>
+                <div class="skill-level">
+                    <div class="skill-bar" style="width: 65%;"></div>
+                    <div class="skill-value">65%</div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -305,10 +314,6 @@
                         <span class="project-tag">CSS</span>
                         <span class="project-tag">JavaScript</span>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">Demo</a>
-                        <a href="#" class="project-link">GitHub</a>
-                    </div>
                 </div>
             </div>
 
@@ -321,10 +326,6 @@
                         <span class="project-tag">React</span>
                         <span class="project-tag">Chart.js</span>
                         <span class="project-tag">Node.js</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">Demo</a>
-                        <a href="#" class="project-link">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -342,12 +343,82 @@
                         <span class="project-tag">Pandas</span>
                         <span class="project-tag">ExcelWriter</span>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">Demo</a>
-                        <a href="#" class="project-link">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">📚</div>
+                <div class="project-info">
+                    <div class="project-title">Gestão de Normas Empresariais</div>
+                    <div class="project-desc">Sistema para cadastro, atualização e controle de normas internas e externas de empresas, com alertas e relatórios automatizados.</div>
+                    <div class="project-tags">
+                        <span class="project-tag">Django</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">PostgreSQL</span>
                     </div>
                 </div>
             </div>
+
+            <div class="project-card">
+                <div class="project-image">🔄</div>
+                <div class="project-info">
+                    <div class="project-title">Workflow Empresarial</div>
+                    <div class="project-desc">Plataforma para automação de fluxos de trabalho, aprovação de processos e integração entre setores da empresa.</div>
+                    <div class="project-tags">
+                        <span class="project-tag">Vue</span>
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">MongoDB</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🏗️</div>
+                <div class="project-info">
+                    <div class="project-title">Controle de Obra</div>
+                    <div class="project-desc">Aplicação para acompanhamento de obras, controle de etapas, materiais, equipes e geração de relatórios de progresso.</div>
+                    <div class="project-tags">
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Firebase</span>
+                        <span class="project-tag">Material UI</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">📝</div>
+                <div class="project-info">
+                    <div class="project-title">Formulários Diversos</div>
+                    <div class="project-desc">Coleção de formulários inteligentes para diferentes finalidades empresariais, com validação dinâmica e integração a bancos de dados.</div>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🤖</div>
+                <div class="project-info">
+                    <div class="project-title">Web Scraping Inteligente</div>
+                    <div class="project-desc">Ferramenta para extração automatizada de dados de sites, com tratamento e exportação para planilhas.</div>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">BeautifulSoup</span>
+                        <span class="project-tag">Pandas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Observação lúdica sobre os projetos empresariais -->
+        <div class="project-note" style="margin-top: 30px; padding: 18px; background: rgba(40,42,54,0.7); border-radius: 8px; border: 2px dashed var(--accent-color); color: var(--text-color); text-align: center; font-size: 18px;">
+            <span style="font-size: 22px;">⚠️🗝️</span><br>
+            <strong>Nota do Dev:</strong> Muitos destes projetos são artefatos mágicos desenvolvidos em missões empresariais secretas!<br>
+            Por questões de confidencialidade, não posso compartilhar o código completo ou demos publicamente.<br>
+            Mas, se você quiser saber mais detalhes sobre alguma dessas aventuras, basta me chamar e eu conto tudo nos mínimos pixels (sem quebrar nenhum pacto de sigilo)!<br>
+            <span style="font-size: 16px; color: var(--accent-color);">(Entre em contato para saber mais sobre as magias por trás dos bastidores!)</span>
         </div>
     </div>
 
