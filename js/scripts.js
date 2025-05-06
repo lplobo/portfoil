@@ -41,6 +41,12 @@ function showSection(sectionId) {
 
 // Navegação com teclado
 document.addEventListener('keydown', function(event) {
+    // Check if the user is typing in a form input
+    const activeElement = document.activeElement;
+    if (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA') {
+        return; // Don't handle navigation if typing in form
+    }
+
     const buttons = document.querySelectorAll('.nav-button');
     const currentIndex = Array.from(buttons).findIndex(button => button === document.activeElement);
     
@@ -206,4 +212,228 @@ style.textContent = `
 }
 `;
 document.head.appendChild(style);
+
+// Inicializa o sistema de partículas quando a página carregar
+createParticleSystem();
+
+// Gerenciamento do tema
+initThemeToggle();
+
+// Inicializa o parallax quando o DOM estiver carregado
+initParallax();
 });
+
+// Sistema de partículas interativas
+function createParticleSystem() {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'particle-canvas';
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.zIndex = '1';
+    document.body.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let mouse = { x: 0, y: 0 };
+
+    // Ajusta o tamanho do canvas
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Atualiza a posição do mouse
+    document.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    });
+
+    // Classe para partículas
+    class Particle {
+        constructor() {
+            this.reset();
+        }
+
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 3 + 1;
+            this.speedX = Math.random() * 2 - 1;
+            this.speedY = Math.random() * 2 - 1;
+            this.color = `rgba(189, 147, 249, ${Math.random() * 0.5 + 0.2})`;
+        }
+
+        update() {
+            // Movimento suave em direção ao mouse
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 100) {
+                const angle = Math.atan2(dy, dx);
+                const force = (100 - distance) / 100;
+                this.speedX -= Math.cos(angle) * force * 0.2;
+                this.speedY -= Math.sin(angle) * force * 0.2;
+            }
+
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            // Reduz a velocidade gradualmente
+            this.speedX *= 0.98;
+            this.speedY *= 0.98;
+
+            // Reseta a partícula se sair da tela
+            if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                this.reset();
+            }
+        }
+
+        draw() {
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    // Cria as partículas iniciais
+    for (let i = 0; i < 100; i++) {
+        particles.push(new Particle());
+    }
+
+    // Loop de animação
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles.forEach(particle => {
+            particle.update();
+            particle.draw();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+}
+
+// Efeito de digitação para títulos
+function typeWriter(element, text, speed = 50) {
+    let i = 0;
+    element.innerHTML = '';
+    
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    
+    type();
+}
+
+// Aplica o efeito de digitação aos títulos principais
+document.addEventListener('DOMContentLoaded', function() {
+    const titles = document.querySelectorAll('.section-title');
+    titles.forEach(title => {
+        const originalText = title.textContent;
+        typeWriter(title, originalText);
+    });
+    
+    // ... existing code ...
+});
+
+// Gerenciamento do tema
+function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    // Verifica se há um tema salvo
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+    
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        // Atualiza o tema
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Atualiza o ícone com animação
+        updateThemeIcon(newTheme);
+        
+        // Adiciona efeito de transição
+        document.body.style.transition = 'background-color 0.3s ease';
+    });
+}
+
+function updateThemeIcon(theme) {
+    const themeIcon = document.querySelector('.theme-toggle i');
+    if (theme === 'dark') {
+        themeIcon.className = 'fas fa-sun';
+    } else {
+        themeIcon.className = 'fas fa-moon';
+    }
+}
+
+// Efeito Parallax
+function initParallax() {
+    // Cria o container de parallax
+    const parallaxContainer = document.createElement('div');
+    parallaxContainer.className = 'parallax-container';
+    
+    // Cria as camadas de parallax
+    for (let i = 1; i <= 3; i++) {
+        const layer = document.createElement('div');
+        layer.className = `parallax-layer parallax-layer-${i}`;
+        parallaxContainer.appendChild(layer);
+    }
+    
+    // Adiciona o container ao body
+    document.body.insertBefore(parallaxContainer, document.body.firstChild);
+    
+    // Função para atualizar o parallax
+    function updateParallax(e) {
+        const mouseX = e.clientX / window.innerWidth;
+        const mouseY = e.clientY / window.innerHeight;
+        
+        // Atualiza cada camada com diferentes velocidades
+        document.querySelectorAll('.parallax-layer').forEach((layer, index) => {
+            const speed = (index + 1) * 0.05;
+            const x = (mouseX - 0.5) * speed * 100;
+            const y = (mouseY - 0.5) * speed * 100;
+            layer.style.transform = `translate(${x}px, ${y}px) translateZ(-${index + 1}px) scale(2)`;
+        });
+        
+        // Atualiza elementos do conteúdo
+        const elements = document.querySelectorAll('.game-container, .sidebar, .main-content, .profile-card, .project-card, .experience-item, .education-item');
+        elements.forEach(element => {
+            const speed = 0.02;
+            const x = (mouseX - 0.5) * speed * 50;
+            const y = (mouseY - 0.5) * speed * 50;
+            element.style.transform = `translate(${x}px, ${y}px) translateZ(0)`;
+        });
+    }
+    
+    // Adiciona o evento de movimento do mouse
+    document.addEventListener('mousemove', updateParallax);
+    
+    // Atualiza o parallax no redimensionamento da janela
+    window.addEventListener('resize', () => {
+        const e = { clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 };
+        updateParallax(e);
+    });
+    
+    // Inicializa o parallax com a posição central
+    const e = { clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 };
+    updateParallax(e);
+}

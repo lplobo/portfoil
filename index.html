@@ -6,8 +6,13 @@
     <title>Lucas Pacheco - Dev Portfolio RPG</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <button class="theme-toggle" id="themeToggle" title="Alternar tema">
+        <i class="fas fa-sun"></i>
+    </button>
+    
     <div id="loading-screen">
         <div class="loading-text">Carregando portfólio RPG<span class="cursor"></span></div>
         <div class="loading-bar-container">
@@ -416,22 +421,52 @@
             <div class="section-subtitle">Entre em Contato Comigo</div>
         </div>
 
-        <div class="contact-form">
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="name">Nome</label>
-                    <input type="text" id="name" name="name" placeholder="Seu Nome" required>
+        <div class="contact-info">
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <a href="mailto:lucassperandiolobo@gmail.com" class="contact-link">lucassperandiolobo@gmail.com</a>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="Seu E-mail" required>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Telefone</h3>
+                        <a href="tel:+5541991251293" class="contact-link">+55 (41) 99125-1293</a>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="message">Mensagem</label>
-                    <textarea id="message" name="message" placeholder="Sua Mensagem" rows="5" required></textarea>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/lucas-sperandio-lobo-pacheco/" target="_blank" class="contact-link">linkedin.com/in/lucas-sperandio-lobo-pacheco</a>
+                    </div>
                 </div>
-                <button type="submit" class="submit-button">Enviar</button>
-            </form>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/LucasSLPacheco" target="_blank" class="contact-link">github.com/LucasSLPacheco</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-message">
+                <p>Estou sempre disponível para novas oportunidades e projetos interessantes. Sinta-se à vontade para entrar em contato através de qualquer um dos canais acima!</p>
+            </div>
         </div>
     </div>
     
